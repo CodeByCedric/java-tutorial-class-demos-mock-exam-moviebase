@@ -77,6 +77,9 @@ public class LoginController {
 
         try {
             Parent root = loader.load();
+            MovieReviewController ctlr = loader.getController();
+            ctlr.setUsername(txtUsername.getText());
+
             scene.setRoot(root);
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Unable to open main screen.", ex);

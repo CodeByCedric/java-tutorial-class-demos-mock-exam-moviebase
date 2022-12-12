@@ -2,6 +2,7 @@ package services;
 
 import data.Repositories;
 import domain.Movie;
+import domain.Review;
 import domain.User;
 import util.Crypto;
 import util.MovieException;
@@ -34,4 +35,7 @@ public class MovieService {
         }
     }
 
+    public void addReview(Review review) {
+        Repositories.getReviewRepository().addReview(review);
+    }
 }
