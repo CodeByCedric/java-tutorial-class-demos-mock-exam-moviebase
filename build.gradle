@@ -27,6 +27,8 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
     // https://mvnrepository.com/artifact/org.jasypt/jasypt
     implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.3'
+// https://mvnrepository.com/artifact/org.mindrot/jbcrypt
+    implementation group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
 
 }
 
