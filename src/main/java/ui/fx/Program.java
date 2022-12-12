@@ -18,10 +18,10 @@ public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL url = getClass().getResource("/fxml/MovieReview.fxml");
+        URL url = getClass().getResource("/fxml/Login.fxml");
         Locale locale = new Locale("en", "US");
 
-        ResourceBundle bundle = ResourceBundle.getBundle("MovieReview", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("Login", locale);
 
         FXMLLoader loader = new FXMLLoader(url, bundle);
 
