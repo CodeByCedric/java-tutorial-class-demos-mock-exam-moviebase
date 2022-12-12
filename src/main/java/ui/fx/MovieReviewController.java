@@ -4,8 +4,11 @@ import domain.Movie;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import services.MovieService;
 
 import java.util.List;
@@ -13,6 +16,12 @@ import java.util.List;
 public class MovieReviewController {
 
     private final MovieService service = new MovieService();
+
+    @FXML
+    public ImageView imgCover;
+
+    @FXML
+    public Label lblTitle;
 
     @FXML
     private ListView lstResults;
@@ -33,6 +42,11 @@ public class MovieReviewController {
 
     @FXML
     public void onDisplayMovie(ActionEvent e) {
+        Movie movie = (Movie) lstResults.getSelectionModel().getSelectedItem();
+
+        Image img = new Image(movie.getCoverUrl());
+        imgCover.setImage(img);
+        lblTitle.setText(movie.getTitle());
     }
 
     @FXML

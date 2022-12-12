@@ -53,7 +53,7 @@
             <Button mnemonicParsing="false" onAction="#onDisplayMovie" text="%movies.matches.display" />
          </children>
       </HBox>
-      <Label text="%movies.review.title">
+      <Label text="%movies.review.title" fx:id="lblTitle">
          <padding>
             <Insets top="25.0" />
          </padding>
