@@ -3,6 +3,7 @@ package data;
 import domain.Movie;
 import messages.MovieResultMessage;
 import messages.MovieSearchMessage;
+import util.MovieException;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,7 +29,7 @@ public class NetworkMovieRepository implements MovieRepository {
             return mrm.getResults();
         } catch (IOException | ClassNotFoundException ex) {
             LOGGER.log(Level.SEVERE, "Unable to communicate with server.", ex);
-            return null;
+            throw new MovieException("Unable to retrieve movies.");
         }
 
     }
