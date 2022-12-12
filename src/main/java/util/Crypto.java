@@ -5,10 +5,10 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class Crypto {
 
-    private final StrongTextEncryptor encryptor = new StrongTextEncryptor();
-    private final static String KEY = "HELLO-FROM-HOWEST";
+    private static final String KEY = "HELLO-FROM-HOWEST";
+    private static final Crypto INSTANCE = new Crypto();
 
-    private final static Crypto INSTANCE = new Crypto();
+    private final StrongTextEncryptor encryptor = new StrongTextEncryptor();
 
     private Crypto() {
         encryptor.setPassword(KEY);

@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -15,7 +14,6 @@ import util.MovieException;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +43,7 @@ public class LoginController {
 
         try {
             User user = service.login(login, clearPwd);
-            showMovieScreen();
+            showMovieScreen(user);
         } catch (MovieException ex) {
             showErrorMessage(ex.getMessage());
         }
@@ -58,7 +56,7 @@ public class LoginController {
 
         try {
             User user = service.register(login, clearPwd);
-            showMovieScreen();
+            showMovieScreen(user);
         } catch (MovieException ex) {
             showErrorMessage(ex.getMessage());
         }
@@ -68,7 +66,7 @@ public class LoginController {
        lblErrorMessage.setText(message);
     }
 
-    private void showMovieScreen() {
+    private void showMovieScreen(User user) {
         Scene scene = txtUsername.getParent().getScene();
 
         URL url = getClass().getResource("/fxml/MovieReview.fxml");
@@ -78,7 +76,7 @@ public class LoginController {
         try {
             Parent root = loader.load();
             MovieReviewController ctlr = loader.getController();
-            ctlr.setUsername(txtUsername.getText());
+            ctlr.setUsername(user.getUsername());
 
             scene.setRoot(root);
         } catch (IOException ex) {

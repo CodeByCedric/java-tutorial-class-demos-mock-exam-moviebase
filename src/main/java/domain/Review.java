@@ -21,8 +21,8 @@ public class Review {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Review review = (Review) o;
-        return id == review.id;
+        Review review1 = (Review) o;
+        return id == review1.id;
     }
 
     @Override

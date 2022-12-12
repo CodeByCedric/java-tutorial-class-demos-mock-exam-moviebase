@@ -17,7 +17,7 @@ public class MovieReviewController {
     private final MovieService service = new MovieService();
 
     @FXML
-    private Spinner spnScore;
+    private Spinner<Integer> spnScore;
 
     @FXML
     private ImageView imgCover;
@@ -29,7 +29,7 @@ public class MovieReviewController {
     private TextField txtReviewText;
 
     @FXML
-    private ListView lstResults;
+    private ListView<Movie> lstResults;
 
     @FXML
     private TextField txtSearch;
@@ -53,7 +53,7 @@ public class MovieReviewController {
 
     @FXML
     public void onDisplayMovie(ActionEvent e) {
-        Movie movie = (Movie) lstResults.getSelectionModel().getSelectedItem();
+        Movie movie = lstResults.getSelectionModel().getSelectedItem();
 
         Image img = new Image(movie.getCoverUrl());
         imgCover.setImage(img);
@@ -62,11 +62,11 @@ public class MovieReviewController {
 
     @FXML
     public void onAddReview(ActionEvent e) {
-        Movie movie = (Movie) lstResults.getSelectionModel().getSelectedItem();
+        Movie movie = lstResults.getSelectionModel().getSelectedItem();
 
         Review review = new Review(username,
                 movie, txtReviewText.getText(),
-                (Integer) spnScore.getValue());
+                spnScore.getValue());
 
         service.addReview(review);
 

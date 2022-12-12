@@ -1,7 +1,5 @@
 package data;
 
-import services.MovieService;
-
 public class Repositories {
 
     private static final MovieRepository MOVIE_REPOSITORY = new NetworkMovieRepository();
